@@ -17,6 +17,7 @@ exports.isLoggedIn = (req, res, next) => {
   // first check if the user is authenticated
   if (req.isAuthenticated()){
     next(); // carry on! they are logged in
+    return;
   }
   req.flash('error', 'Oops! You must be logged in to do that!');
   res.redirect('/login');
